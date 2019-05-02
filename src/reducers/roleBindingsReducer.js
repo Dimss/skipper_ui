@@ -1,4 +1,4 @@
-import {SET_ROLES_SYANKEY_DATA} from "../actions/rolesActions";
+import {SET_ROLES_BINDINGS_SYANKEY_DATA} from "../actions/rolesBindingsActions";
 
 const defaultState = {
     sankeyData: {
@@ -23,13 +23,13 @@ const defaultState = {
 };
 
 
-const rolesReducer = (state = defaultState, action) => {
+const roleBindingsReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case SET_ROLES_SYANKEY_DATA:
+        case SET_ROLES_BINDINGS_SYANKEY_DATA:
             return Object.assign({}, state, {sankeyData: action.sankeyData});
         default:
             return state
     }
 };
 
-export default rolesReducer;
+export default roleBindingsReducer;

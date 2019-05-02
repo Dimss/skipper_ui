@@ -4,7 +4,9 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => ({
     selectedKeys: state.appMenuReducer.selectedKeys,
-    openKeys: state.appMenuReducer.openKeys
+    openKeys: state.appMenuReducer.openKeys,
+    namespaces: state.appMenuReducer.namespaces,
+    selectedNs: state.appMenuReducer.selectedNs
 });
 
 const mapDispatchToProps = (dispatch) => ({dispatch});

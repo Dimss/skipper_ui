@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 
 const mapStateToProps = (state, ownProps) => ({
-
+        sankeyData: state.rolesReducer.sankeyData
 });
 
 const mapDispatchToProps = (dispatch) => ({

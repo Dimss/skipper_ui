@@ -1,11 +1,13 @@
 import {
     SET_SELECTED_KEYS,
-    SET_OPEN_KEYS
+    SET_OPEN_KEYS, SET_NAMESPACES, SET_SELECTED_NS
 } from '../actions/appMenuActions'
 
 const defaultState = {
     selectedKeys: [],
-    openKeys: []
+    openKeys: [],
+    namespaces: [],
+    selectedNs: 'kube-system'
 };
 
 
@@ -17,6 +19,10 @@ const appMenuReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {selectedKeys: action.keyPath});
         case SET_OPEN_KEYS:
             return Object.assign({}, state, {openKeys: action.keyPath});
+        case SET_NAMESPACES:
+            return Object.assign({}, state, {namespaces: action.namespaces});
+        case SET_SELECTED_NS:
+            return Object.assign({}, state, {selectedNs: action.selectedNs});
         default:
             return state
     }
