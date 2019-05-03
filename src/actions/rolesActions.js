@@ -1,4 +1,5 @@
 import ApiClient from "../api/ApiClient";
+import {appNotification} from "./appMenuActions";
 
 export const SET_ROLES_SYANKEY_DATA = 'SET_ROLES_SYANKEY_DATA';
 
@@ -15,7 +16,13 @@ export function fetchRolesSankeyData() {
         const {selectedNs} = getState().appMenuReducer;
         let err, resData;
         [err, resData] = (await new ApiClient().getRolesSankeyGraphData(selectedNs));
-        dispatch(setRolesSankeyData(resData.data));
+        if (resData.data.nodes === null || resData.data.links === null) {
+            dispatch(appNotification("warning", "Empty result set for namespace " + selectedNs));
+            dispatch(setRolesSankeyData(null));
+        } else {
+            dispatch(setRolesSankeyData(resData.data));
+        }
+
         console.log(resData.data);
 
     }

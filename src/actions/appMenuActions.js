@@ -1,4 +1,7 @@
 import ApiClient from "../api/ApiClient";
+import {fetchRolesSankeyData} from "./rolesActions";
+import {fetchRolesBindingsSankeyData} from "./rolesBindingsActions";
+import {notification} from 'antd';
 
 export const SET_SELECTED_KEYS = 'SET_SELECTED_KEYS';
 export const SET_OPEN_KEYS = 'SET_OPEN_KEYS';
@@ -44,7 +47,25 @@ export function fetchNsData() {
 export function populateSelectedNs() {
     return async (dispatch, getState) => {
         const {selectedKeys} = getState().appMenuReducer;
-        console.log(selectedKeys)
+        switch (selectedKeys[0]) {
+            case "roles":
+                dispatch(fetchRolesSankeyData());
+                break;
+            case "rolebindings":
+                dispatch(fetchRolesBindingsSankeyData());
+                break;
+
+        }
+    }
+}
+
+
+export function appNotification(type, message, description) {
+    return async (dispatch, getState) => {
+        notification[type]({
+            message: message,
+            description: description,
+        });
     }
 }
 

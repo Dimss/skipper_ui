@@ -18,23 +18,7 @@ export default class AppMenu extends React.Component {
         this.props.dispatch(setSelectedKeys(menuItems));
         this.props.dispatch(setOpenKeys([menuItems[0]]));
     }
-
-    onChange = (value) => {
-        this.props.dispatch(setSelectedNs(value));
-        this.props.dispatch(populateSelectedNs())
-    };
-
-
-    onBlur = () => {
-        console.log('blur');
-    };
-
-
-    onFocus = () => {
-        this.props.dispatch(fetchNsData());
-    };
-
-
+    
     render() {
         return (
             <Row>
@@ -62,9 +46,13 @@ export default class AppMenu extends React.Component {
                             style={{width: 200}}
                             placeholder="Select a person"
                             optionFilterProp="children"
-                            onChange={this.onChange}
-                            onFocus={this.onFocus}
-                            onBlur={this.onBlur}
+                            onChange={(value) => {
+                                this.props.dispatch(setSelectedNs(value));
+                                this.props.dispatch(populateSelectedNs())
+                            }}
+                            onFocus={() => {
+                                this.props.dispatch(fetchNsData());
+                            }}
                             defaultValue={this.props.selectedNs}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                         >
