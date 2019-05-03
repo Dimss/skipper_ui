@@ -11,7 +11,7 @@ export default class ApiClient {
     }
 
     getRolesBindingsSankeyGraphData(ns) {
-        return this.execRequest('get', '/bindings?ns=proj1');
+        return this.execRequest('get', `/bindings?ns=${ns}`);
     }
 
     getNamespaces() {
