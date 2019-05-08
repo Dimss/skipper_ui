@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import appMenuReducer from "./reducers/appMenuReducer"
 import dashboardReducer from "./reducers/dashboardReducer";
 import rolesReducer from "./reducers/rolesReducer";
+import clusterRolesReducer from "./reducers/clusterRolesReducer";
 import roleBindingsReducer from "./reducers/roleBindingsReducer";
 
 export const history = createBrowserHistory();
@@ -15,6 +16,7 @@ export const store = createStore(
         appMenuReducer,
         dashboardReducer,
         rolesReducer,
+        clusterRolesReducer,
         roleBindingsReducer,
         router: connectRouter(history),
     }),

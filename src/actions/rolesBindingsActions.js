@@ -1,6 +1,5 @@
 import ApiClient from "../api/ApiClient";
 import {appNotification} from "./appMenuActions";
-import {setRolesSankeyData} from "./rolesActions";
 
 export const SET_ROLES_BINDINGS_SYANKEY_DATA = 'SET_ROLES_BINDINGS_SYANKEY_DATA';
 
@@ -23,6 +22,5 @@ export function fetchRolesBindingsSankeyData() {
         } else {
             dispatch(setRolesBindingsSankeyData(resData.data));
         }
-
     }
 }

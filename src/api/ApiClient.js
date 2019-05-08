@@ -18,6 +18,10 @@ export default class ApiClient {
         return this.execRequest('get', '/namespaces')
     }
 
+    getClusterRolesSankeyGraphData() {
+        return this.execRequest('get', '/clusterroles')
+    }
+
     execRequest(method, uri, data = null) {
 
         return axios({
