@@ -13,11 +13,10 @@ export const setCluseterRolesSankeyData = (sankeyData) => {
 
 export function fetchClusetrRolesSankeyData() {
     return async (dispatch, getState) => {
-        const {selectedNs} = getState().appMenuReducer;
         let err, resData;
-        [err, resData] = (await new ApiClient().getClusterRolesSankeyGraphData(selectedNs));
+        [err, resData] = (await new ApiClient().getClusterRolesSankeyGraphData());
         if (resData.data.nodes === null || resData.data.links === null) {
-            dispatch(appNotification("warning", "Empty result set for namespace " + selectedNs));
+            dispatch(appNotification("warning", "Empty result set for cluster roles"));
             dispatch(setCluseterRolesSankeyData(null));
         } else {
             dispatch(setCluseterRolesSankeyData(resData.data));

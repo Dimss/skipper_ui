@@ -5,6 +5,7 @@ import AppMenu from '../../containers/AppMenuContainer'
 import Roles from "../../containers/RolesContainer";
 import ClusterRoles from "../../containers/ClusterRolesContainer"
 import RoleBindings from "../../containers/RoleBindingsContainer"
+import ClusterRolesBindingsContainer from "../../containers/ClusterRolesBindingsContainer"
 import {Select} from 'antd';
 
 const Option = Select.Option;
@@ -26,6 +27,7 @@ export default class AppRoot extends React.Component {
                         <Route path="/roles" exact component={Roles}/>
                         <Route path="/rolebindings" exact component={RoleBindings}/>
                         <Route path="/clusterroles" exact component={ClusterRoles}/>
+                        <Route path="/clusterrolebinding" exact component={ClusterRolesBindingsContainer}/>
                     </Content>
                 </Layout>
             </Layout>

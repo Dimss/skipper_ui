@@ -22,6 +22,10 @@ export default class ApiClient {
         return this.execRequest('get', '/clusterroles')
     }
 
+    getClusterRolesBindingsSankeyGraphData() {
+        return this.execRequest('get', '/clusterrolesbindings')
+    }
+
     execRequest(method, uri, data = null) {
 
         return axios({

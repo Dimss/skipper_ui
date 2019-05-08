@@ -7,6 +7,7 @@ import appMenuReducer from "./reducers/appMenuReducer"
 import dashboardReducer from "./reducers/dashboardReducer";
 import rolesReducer from "./reducers/rolesReducer";
 import clusterRolesReducer from "./reducers/clusterRolesReducer";
+import clusterRolesBindingsReducer from "./reducers/clusterRolesBindingsReducer";
 import roleBindingsReducer from "./reducers/roleBindingsReducer";
 
 export const history = createBrowserHistory();
@@ -18,6 +19,7 @@ export const store = createStore(
         rolesReducer,
         clusterRolesReducer,
         roleBindingsReducer,
+        clusterRolesBindingsReducer,
         router: connectRouter(history),
     }),
     applyMiddleware(thunk, historyMiddleware)
