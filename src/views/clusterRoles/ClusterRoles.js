@@ -32,6 +32,11 @@ export default class ClusterRoles extends React.Component {
             labelPadding={2}
             labelTextColor="#000000"
             animate={false}
+            onClick={(node, event) => {
+                console.log(node);
+                console.log(event);
+
+            }}
         />
     };
 

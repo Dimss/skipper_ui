@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default class ApiClient {
     constructor() {
-        // this.API = process.env.REACT_APP_KIDI_API;
-        this.API = "http://127.0.0.1:3001";
+        this.API = process.env.REACT_APP_API_URL;
+        console.log("API URL ===> " + this.API)
     }
 
     getRolesSankeyGraphData(ns) {

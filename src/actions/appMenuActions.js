@@ -47,7 +47,7 @@ export function fetchNsData() {
 export function populateSelectedNs() {
     return async (dispatch, getState) => {
         const {selectedKeys} = getState().appMenuReducer;
-        switch (selectedKeys[0]) {
+        switch (selectedKeys[1]) {
             case "roles":
                 dispatch(fetchRolesSankeyData());
                 break;

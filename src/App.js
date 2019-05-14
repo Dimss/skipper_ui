@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <ConnectedRouter history={history}>
+                <ConnectedRouter history={history} basename={window.location.pathname}>
                     <Switch>
                         <AppRoot/>
                     </Switch>

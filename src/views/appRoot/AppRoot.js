@@ -1,14 +1,12 @@
 import React from 'react';
-import {Layout, Menu, Row, Col} from 'antd';
+import {Layout} from 'antd';
 import {Route, Redirect} from 'react-router'
 import AppMenu from '../../containers/AppMenuContainer'
 import Roles from "../../containers/RolesContainer";
 import ClusterRoles from "../../containers/ClusterRolesContainer"
 import RoleBindings from "../../containers/RoleBindingsContainer"
 import ClusterRolesBindingsContainer from "../../containers/ClusterRolesBindingsContainer"
-import {Select} from 'antd';
 
-const Option = Select.Option;
 const {Content, Header} = Layout;
 
 
@@ -21,13 +19,12 @@ export default class AppRoot extends React.Component {
                     <AppMenu/>
                 </Header>
                 <Layout>
-
                     <Content style={{margin: '24px 16px', padding: 24, background: '#f0f2f5'}}>
-                        <Route path="/" exact render={() => (<Redirect to="/roles"/>)}/>
-                        <Route path="/roles" exact component={Roles}/>
-                        <Route path="/rolebindings" exact component={RoleBindings}/>
-                        <Route path="/clusterroles" exact component={ClusterRoles}/>
-                        <Route path="/clusterrolebinding" exact component={ClusterRolesBindingsContainer}/>
+                        <Route path="/ui/" exact render={() => (<Redirect to="/ui/roles"/>)}/>
+                        <Route path="/ui/roles" component={Roles}/>
+                        <Route path="/ui/rolebindings" exact component={RoleBindings}/>
+                        <Route path="/ui/clusterroles" exact component={ClusterRoles}/>
+                        <Route path="/ui/clusterrolebinding" exact component={ClusterRolesBindingsContainer}/>
                     </Content>
                 </Layout>
             </Layout>
