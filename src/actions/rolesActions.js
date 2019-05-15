@@ -16,14 +16,13 @@ export function fetchRolesSankeyData() {
         const {selectedNs} = getState().appMenuReducer;
         let err, resData;
         [err, resData] = (await new ApiClient().getRolesSankeyGraphData(selectedNs));
+        // Cleanup old graph data
+        dispatch(setRolesSankeyData(null));
         if (resData.data.nodes === null || resData.data.links === null) {
             dispatch(appNotification("warning", "Empty result set for namespace " + selectedNs));
-            dispatch(setRolesSankeyData(null));
         } else {
+
             dispatch(setRolesSankeyData(resData.data));
         }
-
-        console.log(resData.data);
-
     }
 }

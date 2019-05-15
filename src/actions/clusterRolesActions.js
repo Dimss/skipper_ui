@@ -15,9 +15,9 @@ export function fetchClusetrRolesSankeyData() {
     return async (dispatch, getState) => {
         let err, resData;
         [err, resData] = (await new ApiClient().getClusterRolesSankeyGraphData());
+        dispatch(setCluseterRolesSankeyData(null));
         if (resData.data.nodes === null || resData.data.links === null) {
             dispatch(appNotification("warning", "Empty result set for cluster roles"));
-            dispatch(setCluseterRolesSankeyData(null));
         } else {
             dispatch(setCluseterRolesSankeyData(resData.data));
         }

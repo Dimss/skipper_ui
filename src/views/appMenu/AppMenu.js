@@ -29,8 +29,6 @@ export default class AppMenu extends React.Component {
                         selectedKeys={this.props.selectedKeys}
                         style={{lineHeight: '50px'}}
                         onClick={(menuItem) => {
-                            console.log(menuItem.keyPath);
-                            console.log(menuItem.keyPath.reverse());
                             this.props.dispatch(setSelectedKeys(menuItem.keyPath));
                             this.props.dispatch(push(menuItem.keyPath.join("/")));
                         }}

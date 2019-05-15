@@ -16,9 +16,9 @@ export function fetchRolesBindingsSankeyData() {
         let err, resData;
         const {selectedNs} = getState().appMenuReducer;
         [err, resData] = (await new ApiClient().getRolesBindingsSankeyGraphData(selectedNs));
+        dispatch(setRolesBindingsSankeyData(null));
         if (resData.data.nodes === null || resData.data.links === null) {
             dispatch(appNotification("warning", "Empty result set for namespace " + selectedNs));
-            dispatch(setRolesBindingsSankeyData(null));
         } else {
             dispatch(setRolesBindingsSankeyData(resData.data));
         }

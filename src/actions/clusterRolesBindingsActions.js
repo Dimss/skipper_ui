@@ -15,9 +15,9 @@ export function fetchClusterRolesBindingsSankeyData() {
     return async (dispatch, getState) => {
         let err, resData;
         [err, resData] = (await new ApiClient().getClusterRolesBindingsSankeyGraphData());
+        dispatch(setClusterRoleBindingsData(null));
         if (resData.data.nodes === null || resData.data.links === null) {
             dispatch(appNotification("warning", "Empty result set for cluster role bindings "));
-            dispatch(setClusterRoleBindingsData(null));
         } else {
             dispatch(setClusterRoleBindingsData(resData.data));
         }

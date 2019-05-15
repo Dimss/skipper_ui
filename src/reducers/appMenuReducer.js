@@ -7,7 +7,7 @@ const defaultState = {
     selectedKeys: [],
     openKeys: [],
     namespaces: [],
-    selectedNs: 'kube-system'
+    selectedNs: 'kube-service-catalog'
 };
 
 
